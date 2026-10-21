@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-surface: #161615;
+  --fg: #f2f2f0;
+  --muted: #8a8a86;
+  --accent: #c8ff00;
+  --border: rgba(242, 242, 240, 0.12);
+  --border-strong: rgba(242, 242, 240, 0.24);
+  --font-display: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-sans-body {
+  font-family: var(--font-sans);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Lightweight hardware-composited micro-grain pattern (zero SVG feTurbulence raster cost) */
+.bg-noise {
+  background-image: radial-gradient(rgba(242, 242, 240, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Architectural hairline grid background */
+.bg-architectural-grid {
+  background-size: 64px 64px;
+  background-image: 
+    linear-gradient(to right, rgba(242, 242, 240, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 242, 240, 0.035) 1px, transparent 1px);
+}
+
+/* Custom scrollbar for sleekness */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(242, 242, 240, 0.22);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c8ff00;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
